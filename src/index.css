@@ -12,6 +12,15 @@ body {
     --input-bg:   hsl(0,0%,90%);
   }
 
+  [data-theme="pink"] {
+    --fg:         hsl(346, 77%, 25%);
+    --border:     hsl(346, 77%, 75%);
+    
+    --bg:         hsl(346, 77%, 95%);
+    --button-bg:  hsl(346, 77%, 79%);
+    --input-bg:   hsl(346, 77%, 90%);
+  }
+  
   [data-theme] {
     color: var(--fg);
     background-color: var(--bg);

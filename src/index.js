@@ -48,17 +48,20 @@ class Game extends Component {
       })
    }
 
-   themeHandelr(e) {
-      console.log(e)
+   themeHandler(e) {
+      const newTheme = e.target.value
+      this.setState({
+         theme: newTheme
+      })
    }
 
    render() {
-      const history = this.state.history
+      const { history, theme } = this.state
       const current = history[this.state.stepNumber]
       const winner = CalculateWinner(current.squares)
-
       const moves = history.map((step, move) => {
-         const desc = move ? 'Go to move #' + move : 'Go to game start'
+      const desc = move ? 'Go to move #' + move : 'Go to game start'
+         
          return (
             <li key={move}>
                <button
@@ -81,7 +84,8 @@ class Game extends Component {
       return (
          <Fragment>
             <div className="theme-selector">
-               <select onChange={e => console.log(e.target.value)}>
+               <span>Choose colour theme: </span>
+               <select onChange={e => this.themeHandler(e)}>
                   <option value="default">Default</option>
                   <option value="black">Black</option>
                   <option value="pink">Pink</option>
@@ -89,7 +93,7 @@ class Game extends Component {
                </select>
             </div>
 
-            <p data-theme="default">wawawa</p>
+            <p data-theme={theme}>wawawa</p>
 
             <div className="game">
                <div className="game-board">
