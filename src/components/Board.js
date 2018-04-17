@@ -1,5 +1,5 @@
 import React from 'react'
-import Square from "./Square";
+import Square from './Square'
 
 export default class Board extends React.Component {
    render() {
@@ -16,6 +16,7 @@ export default class Board extends React.Component {
                         value={this.props.squares[i]}
                         onClick={() => this.props.onClick(i)}
                         test={wonSquares && wonSquares.includes(i)}
+                        key={i}
                      />
                   )
                })}
